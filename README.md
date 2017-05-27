@@ -13,12 +13,12 @@ Log-out of the application.
 There is not DB on the application. Therefore when we logout from the application we will loose all the changes and updated done.
 
 ## Run Front-End
-Inside Front-End folder run package.json with
+Inside frontEnd folder
 
 > npm start
 
 ## Run Backend
-Inside Front-End folder run package.json with
+Inside backEnd folder
 
 > npm start
 
