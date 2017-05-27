@@ -5,7 +5,10 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppComponent }  from './app.component';
+import { routing } from './app.routing';
+
 import { NavComponent } from './header/nav.component';
 import { NewMessageComponent } from './newMessages/new-message.component';
 import { MessagesComponent } from './messages/messages.component';
@@ -13,43 +16,9 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+
 import { WebService } from './_providers/web.service';
 import { AuthService } from './_providers/auth.service';
-
-let routes = [
-  {
-      path: '', 
-      component: HomeComponent
-  },
-  {
-      path: 'messages', 
-      component: MessagesComponent
-  },
-  {
-      path: 'messages/:name', 
-      component: MessagesComponent
-  },
-  {
-      path: 'messages/:id', 
-      component: MessagesComponent
-  },
-  {
-      path: 'newmessages', 
-      component: NewMessageComponent
-  },
-  {
-      path: 'register', 
-      component: RegisterComponent
-  },
-  {
-      path: 'login', 
-      component: LoginComponent
-  },
-  {
-      path: 'user', 
-      component: UserComponent
-  }
-];
 
 @NgModule({
   imports: [ 
@@ -59,7 +28,7 @@ let routes = [
   		HttpModule,
       FormsModule,
       ReactiveFormsModule,
-      RouterModule.forRoot(routes)
+      routing
   	],
   declarations: [ 
   		AppComponent, 
@@ -71,11 +40,12 @@ let routes = [
       LoginComponent,
       UserComponent
   	],
-  bootstrap:    [ AppComponent ],
   providers: [
   		WebService,
       AuthService
-  ]
+  ],
+  
+  bootstrap:    [ AppComponent ]
 
 })
 export class AppModule { }
