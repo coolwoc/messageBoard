@@ -22,10 +22,10 @@ Inside Front-End folder run package.json with
 
 ### Todo
 
-> FE:
-> Input-field with autosearch
-> Delete messages
-> Edit messages 
+> FE:<br/>
+> Input-field with autosearch <br/>
+> Delete messages <br/>
+> Edit messages <br/>
 
-> BE:
-> Moongose database
+> BE:<br/>
+> Moongose database <br/>
