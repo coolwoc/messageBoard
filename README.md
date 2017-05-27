@@ -10,7 +10,7 @@ Get Messages by users ( clicking on the posts ).
 Edit main user data.
 Log-out of the application.
 
-There is not DB on the application. Therefore when we logout from the application we will loose all the changes and updated done.
+There is not DB on the application. Therefore when we logout from the application we will loose all the changes.
 
 ## Run Front-End
 Inside frontEnd folder
