@@ -41,9 +41,6 @@ const appRoutes: Routes = [
 	  path: 'user', 
 	  component: UserComponent
 	}
-
-	// otherwise redirect home
-	{ path: '**', redirecTo: '' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
