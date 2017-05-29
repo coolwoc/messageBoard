@@ -4,11 +4,11 @@ An applications using NODE and EXPRESS with a login-system using json-web-token 
 The Frond End of the application uses ANGULAR MATERIAL, ANGULARJS & TYPESCRIPT.  
 
 Features:
-You can login. 
-Post Messages.
-Get Messages by users ( clicking on the posts ). 
-Edit main user data.
-Log-out of the application.
+You can login.<br/>
+Post Messages.<br/>
+Get Messages by users ( clicking on the posts ).<br/>
+Edit main user data.<br/>
+Log-out of the application.<br/>
 
 There is not DB on the application. Therefore when we logout from the application we will loose all the changes.
 
@@ -35,4 +35,4 @@ Inside backEnd folder
 > Edit messages <br/>
 
 > BE:<br/>
-> Moongose database <br/>
+> MongoDB database <br/>
