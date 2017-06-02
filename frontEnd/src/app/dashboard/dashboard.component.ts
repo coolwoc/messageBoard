@@ -100,11 +100,9 @@ export class DashboardComponent implements OnInit, OnChanges {
 			.attr('x', d => this.xScale(d.name))
 			.attr('y', d => this.yScale(d.number))
 			.attr('width', this.xScale.bandwidth())
-			.attr('height', d => this.height - this.yScale(d.number))
 			.style('fill', (d, i) => this.colors(i))
 			.transition()
 			.delay((d, i) => i * 10)
-			.attr('y', d => this.yScale(d.number))
 			.attr('height', d => this.height - this.yScale(d.number));
 	}
 
