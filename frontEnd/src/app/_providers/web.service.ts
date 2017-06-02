@@ -2,8 +2,11 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+
 import { MdSnackBar } from '@angular/material';
 import { AuthService } from '../_providers/auth.service';
 
@@ -12,13 +15,13 @@ export class WebService {
 
 	BASE_URL = 'http://localhost:63145/api';
 
-
 	// we make observable and private the data
 	// so we can make sure we do not access from 
 	// other components
 	private messageStore = [];
-
 	private messageSubject = new Subject();
+
+	private data = [];
 
 	messages = this.messageSubject.asObservable();
 
@@ -39,6 +42,19 @@ export class WebService {
 		
 	}
 
+	getDataAll() {
+		
+		/*
+		this.http.get(this.BASE_URL + '/dataAll').subscribe(response => {
+			this.data = response.json();
+		}, error => {
+			this.handleError('Unable to get any data');
+		})
+		*/
+
+		return this.http.get(this.BASE_URL + '/dataAll').map(res => res.json());
+
+	}
 
 	async postMessage(message) {
 		try {

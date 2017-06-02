@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ApplicationRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
@@ -16,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { WebService } from './_providers/web.service';
 import { AuthService } from './_providers/auth.service';
@@ -24,6 +26,7 @@ import { AuthService } from './_providers/auth.service';
   imports: [ 
   		BrowserModule, 
   		MaterialModule, 
+      CommonModule,
   		BrowserAnimationsModule,
   		HttpModule,
       FormsModule,
@@ -38,7 +41,8 @@ import { AuthService } from './_providers/auth.service';
       HomeComponent,
       RegisterComponent,
       LoginComponent,
-      UserComponent
+      UserComponent,
+      DashboardComponent
   	],
   providers: [
   		WebService,

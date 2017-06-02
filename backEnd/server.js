@@ -16,7 +16,40 @@ var messages = [
 	}
 ];
 
-var users = [{firstName: 'Ms Test', email: 'test@test.me', password: 'test', id: 0}];
+var users = [
+	{
+		firstName: 'Ms Test', 
+		email: 'test@test.me', 
+		password: 'test', id: 0
+	}
+];
+
+var dataAll = [
+	{
+		name: 'January',
+		number: 120 
+	},
+	{
+		name: 'February',
+		number: 140
+	},
+	{
+		name: 'March',
+		number: 25
+	},
+	{
+		name: 'April',
+		number: 313
+	},
+	{
+		name: 'May',
+		number: 214
+	},
+	{
+		name: 'June',
+		number: 123
+	}
+]
 
 app.use(bodyParser.json());
 
@@ -40,6 +73,10 @@ api.get('/messages/:user', (req, res) => {
 	res.json(result);
 })
 
+api.get('/dataAll', (req, res) => {
+	res.json(dataAll);
+})
+
 api.post('/messages', (req, res) => {
     messages.push(req.body);
     res.json(req.body);
@@ -54,7 +91,6 @@ api.post('/users/me', checkAuthenticated, (req,res) => {
 
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
-    console.log(res);
     res.json(user);
 })
 

@@ -1,4 +1,5 @@
 <md-toolbar color="primary">
+	<button *ngIf="auth.isAuthenticated" md-button routerLink="/dashboard">Dashboard</button>
     <button *ngIf="auth.isAuthenticated" md-button routerLink="/">Messages</button>
     <button *ngIf="auth.isAuthenticated" md-button routerLink="/newmessages">Add Message</button>
     <span class='menu-divider'></span>

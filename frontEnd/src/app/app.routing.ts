@@ -7,43 +7,45 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes: Routes = [
 	{
-	  path: '', 
-	  component: HomeComponent
+		path: '', 
+		component: HomeComponent
 	},
 	{
-	  path: 'messages', 
-	  component: MessagesComponent
+		path: 'messages', 
+		component: MessagesComponent
 	},
 	{
-	  path: 'messages/:name', 
-	  component: MessagesComponent
+		path: 'messages/:name',
+		component: MessagesComponent
 	},
 	{
-	  path: 'messages/:id', 
-	  component: MessagesComponent
+		path: 'messages/:id', 
+		component: MessagesComponent
 	},
 	{
-	  path: 'newmessages', 
-	  component: NewMessageComponent
+		path: 'newmessages', 
+		component: NewMessageComponent
 	},
 	{
-	  path: 'register', 
-	  component: RegisterComponent
+		path: 'register', 
+		component: RegisterComponent
 	},
 	{
-	  path: 'login', 
-	  component: LoginComponent
+		path: 'login', 
+		component: LoginComponent
 	},
 	{
-	  path: 'user', 
-	  component: UserComponent
+		path: 'user', 
+		component: UserComponent
+	},
+	{
+		path: 'dashboard',
+		component: DashboardComponent
 	}
-
-	// otherwise redirect home
-	{ path: '**', redirecTo: '' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

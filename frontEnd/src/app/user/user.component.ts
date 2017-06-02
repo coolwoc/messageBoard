@@ -23,7 +23,7 @@ export class UserComponent {
         lastName: ''
     }
 
-    // gets user info from BE
+    // get User from Observable & subscribe to get data.
     ngOnInit() {
         this.webService.getUser().subscribe(res => {
             this.model.firstName = res.firstName;
