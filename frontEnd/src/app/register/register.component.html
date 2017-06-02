@@ -1,22 +1,23 @@
+<h2>Register User</h2>
 <md-card>
 	<form [formGroup]='form' (ngSubmit)='onSubmit()'>
 		<md-input-container>
-			<input style='width:350px' mdInput [ngClass]="{'error': isValid('firstName') }" placeholder="First Name" formControlName='firstName'>
+			<input class='input-width' mdInput [ngClass]="{'error': isValid('firstName') }" placeholder="First Name" formControlName='firstName'>
 		</md-input-container>
 		<md-input-container>
-			<input style='width:350px' mdInput [ngClass]="{'error': isValid('lastName') }" placeholder="Last Name" formControlName='lastName'>
+			<input class='input-width' mdInput [ngClass]="{'error': isValid('lastName') }" placeholder="Last Name" formControlName='lastName'>
 		</md-input-container>
 		<md-input-container>
-			<input style='width:350px' type='email' mdInput [ngClass]="{'error': isValid('email') }" placeholder="Email" formControlName='email'>
+			<input class='input-width' type='email' mdInput [ngClass]="{'error': isValid('email') }" placeholder="Email" formControlName='email'>
 		</md-input-container>
 		<md-input-container>
-			<input style='width:350px' type='password' mdInput [ngClass]="{'error': isValid('password') }" placeholder="Password" formControlName='password'>
+			<input class='input-width' type='password' mdInput [ngClass]="{'error': isValid('password') }" placeholder="Password" formControlName='password'>
 		</md-input-container>
 		<md-input-container>
-			<input style='width:350px' type='password' mdInput [ngClass]="{'error': isValid('confirmPassword') }" placeholder="Confirm Password" formControlName='confirmPassword'>
+			<input class='input-width' type='password' mdInput [ngClass]="{'error': isValid('confirmPassword') }" placeholder="Confirm Password" formControlName='confirmPassword'>
 		</md-input-container>
 		<br/>
-		<span style="display: block;" *ngIf='form.errors?.mismatchedFields'>Password do not match</span>
+		<span class='error-msg' *ngIf='form.errors?.mismatchedFields'>Password do not match</span>
 		<br/>
 		<button md-raised-button color='primary'>Register</button>
 	</form>

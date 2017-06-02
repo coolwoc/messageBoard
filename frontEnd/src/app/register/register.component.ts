@@ -10,6 +10,17 @@ import { AuthService } from '../_providers/auth.service';
   		.error {
   			background-color: #fff0f0;
   		}
+  		.error-msg {
+  			display: block;
+  			font-size: 12px;
+  			color: red;
+  		}
+  		.mat-input-container {
+  			width: 100%;
+  		}
+		.mat-input-container .input-width {
+  			width: 100%;
+  		}
   	`]
 })
 export class RegisterComponent  {

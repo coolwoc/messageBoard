@@ -1,3 +1,4 @@
+<h2>Message Board</h2>
 <div *ngFor="let message of webService.messages | async ">
 	<md-card class='card' *ngIf="auth.isAuthenticated">
 		<md-card-title [routerLink]="['/messages', message.owner]" style='cursor: pointer'>{{message.owner}}</md-card-title>
