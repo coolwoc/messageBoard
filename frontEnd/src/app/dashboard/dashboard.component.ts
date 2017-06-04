@@ -32,11 +32,14 @@ import { ActivatedRoute } from '@angular/router';
 		.d3-chart .axis text {
 			fill: #999;
 		}
-
 		.d3-pie {
 			float: left;
 		 	width: 600px;
 		 	height: 390px;
+		}
+		.d3-pie svg {
+			width: 100%;
+			height: 100%;
 		}
 		.arc {
 			color: #f2f2f2;
@@ -97,6 +100,7 @@ import { ActivatedRoute } from '@angular/router';
 export class DashboardComponent implements OnInit, PipeTransform {
 
 	@ViewChild('chart') private chartContainer: ElementRef;
+	@ViewChild('pie') private pieContainer: ElementRef;
 
 	// chart
 	private margin: any = { top: 20,  bottom: 20, left: 20, right: 20 };
@@ -131,11 +135,13 @@ export class DashboardComponent implements OnInit, PipeTransform {
 
 		// subscribe observable
 		this.webService.getDataAll().subscribe(res => {
+
 			this.dataAll = res;
+			
 			// create charts
 			this.createChart();
 			this.createPie();
-			this.drawPie();
+
 		});
 	}
 
@@ -196,12 +202,14 @@ export class DashboardComponent implements OnInit, PipeTransform {
 	// pie bar
 	createPie() {
 
-		this.pWidth = 600 - this.margin.left - this.margin.right;
-		this.pHeight = 390 - this.margin.top - this.margin.bottom;
-		this.pRadius = Math.min(this.width, this.height) / 2;
+		let pElement = this.pieContainer.nativeElement;
+		this.pWidth = pElement.offsetWidth - this.margin.left - this.margin.right;
+		this.pHeight = pElement.offsetHeight - this.margin.top - this.margin.bottom;
+		this.pRadius = Math.min(this.pWidth, this.pHeight) / 2;
 
 		this.color = D3.scaleOrdinal(D3.schemeCategory10);
 
+		// pie-chart area
         this.arc = D3.arc()
         	.outerRadius(this.pRadius - 10)
         	.innerRadius(0);
@@ -213,25 +221,24 @@ export class DashboardComponent implements OnInit, PipeTransform {
         this.pie = D3.pie()
         	.value((d: any) => d.number);
 
-        this.svg = D3.select('.d3-pie')
+        this.svg = D3.select(pElement).append('svg')
         	.append('g')
         	.attr('transform', 'translate(' + this.pWidth/2 + ',' + this.pHeight/2 + ')');
-	}
 
-	drawPie() {
-		let g = this.svg.selectAll('.arc')
+        // populate pie-chart
+       	let g = this.svg.selectAll('.arc')
 			.data(this.pie(this.dataAll))
 			.enter()
 			.append('g')
 			.attr('class', 'arc');
 
-		g.append('path').attr('d', this.arc)
-			.style('fill', (d: any) => this.color(d.value));
+			g.append('path').attr('d', this.arc)
+				.style('fill', (d: any) => this.color(d.value));
 
-		g.append('text')
-			.attr('transform', (d: any) => 'translate(' + this.labelArc.centroid(d) + ')')
-			.attr('dy', '0.35em')
-			.text( (d: any) => d.data.name ).style('fill', '#f2f2f2');
+			g.append('text')
+				.attr('transform', (d: any) => 'translate(' + this.labelArc.centroid(d) + ')')
+				.attr('dy', '0.35em')
+				.text( (d: any) => d.data.name ).style('fill', '#f2f2f2');
 	}
 
 }
