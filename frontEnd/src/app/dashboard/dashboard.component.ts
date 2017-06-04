@@ -23,6 +23,7 @@ import { ActivatedRoute } from '@angular/router';
 		.d3-chart {
 		 	width: 100%;
 		 	height: 400px;
+		 	margin-bottom: 40px;
 		}
 		.d3-chart .axis path,
 		.d3-chart .axis line {
