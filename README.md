@@ -24,7 +24,7 @@ Inside backEnd folder
 > npm start
 
 ## Log-in
-> email: test@test.com<br>
+> email: test@test.me<br>
 > password: test
 
 
