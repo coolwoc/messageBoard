@@ -97,7 +97,7 @@ import { ActivatedRoute } from '@angular/router';
 	`]
 })
 
-export class DashboardComponent implements OnInit, PipeTransform {
+export class DashboardComponent implements OnInit {
 
 	@ViewChild('chart') private chartContainer: ElementRef;
 	@ViewChild('pie') private pieContainer: ElementRef;
