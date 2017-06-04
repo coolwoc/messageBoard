@@ -6,6 +6,9 @@ import { AuthService } from '../_providers/auth.service';
     selector: 'nav',
     templateUrl: 'nav.component.html',
     styles: [`
+    	.mat-button.isActive {
+    		color: #ffff00;
+    	}
     	.menu-divider {
     		flex: 1 1 auto;
     	}

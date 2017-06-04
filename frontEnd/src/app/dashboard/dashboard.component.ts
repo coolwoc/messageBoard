@@ -15,6 +15,11 @@ import { ActivatedRoute } from '@angular/router';
 	templateUrl: 'dashboard.component.html',
 	encapsulation: ViewEncapsulation.None,
 	styles: [`
+
+		.dash-wrapper {
+			width: 90%;
+			margin: 0 auto
+		}
 		.d3-chart {
 		 	width: 100%;
 		 	height: 400px;
