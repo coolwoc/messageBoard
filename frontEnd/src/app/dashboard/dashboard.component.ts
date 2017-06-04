@@ -134,6 +134,7 @@ export class DashboardComponent implements OnInit, PipeTransform {
 			this.dataAll = res;
 			// create charts
 			this.createChart();
+			this.createPie();
 			this.drawPie();
 		});
 	}
@@ -190,8 +191,6 @@ export class DashboardComponent implements OnInit, PipeTransform {
 			.delay((d, i) => i * 10)
 			.attr('height', d => this.height - this.yScale(d.number));
 
-		// createPie
-		this.createPie();
 	}
 
 	// pie bar
