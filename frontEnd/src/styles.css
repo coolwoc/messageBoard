@@ -14,6 +14,14 @@ h2 {
 	padding-left: 20px;
 }
 
+h3 {
+	font-size: 125%;
+	font-weight: normal;
+	color: #369;
+	width: 100%;
+	padding-left: 20px;
+}
+
 p {
 	font-size: 100%;
 	color: #666;

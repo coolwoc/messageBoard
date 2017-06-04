@@ -1,3 +1,25 @@
 <h2>Dashboad</h2>
 <p>Messages posted for the last 6 months</p>
+
+<h3>Bars Graph</h3>
 <div class="d3-chart" #chart></div>
+
+<h3>Pie Graph</h3>
+<svg class='d3-pie'></svg>
+
+<div class="table-pie">
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor='let data of dataAll'>
+				<td [innerHTML]='data.name'></td>
+				<td [innerHTML]='data.number'></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

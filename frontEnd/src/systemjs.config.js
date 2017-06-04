@@ -30,7 +30,7 @@
       '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
       '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
       '@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',
-      'd3': 'npm:d3/build/d3.min.js'
+      'd3': 'npm:d3/build/d3.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
