@@ -38,10 +38,11 @@ import { ActivatedRoute } from '@angular/router';
 		 	width: 600px;
 		 	height: 390px;
 		}
-
+		.arc {
+			color: #f2f2f2;
+		}
 		.arc text {
-			font-size: 10px;
-			color: red;
+			font-size: 16px;
 			text-anchor: middle;
 		}
 		.arc path {
@@ -200,8 +201,7 @@ export class DashboardComponent implements OnInit, PipeTransform {
 		this.pHeight = 390 - this.margin.top - this.margin.bottom;
 		this.pRadius = Math.min(this.width, this.height) / 2;
 
-		this.color = D3.scaleOrdinal()
-            .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c"]);
+		this.color = D3.scaleOrdinal(D3.schemeCategory10);
 
         this.arc = D3.arc()
         	.outerRadius(this.pRadius - 10)
@@ -227,12 +227,12 @@ export class DashboardComponent implements OnInit, PipeTransform {
 			.attr('class', 'arc');
 
 		g.append('path').attr('d', this.arc)
-			.style('fill', (d: any) => this.color(d.number));
+			.style('fill', (d: any) => this.color(d.value));
 
 		g.append('text')
 			.attr('transform', (d: any) => 'translate(' + this.labelArc.centroid(d) + ')')
 			.attr('dy', '0.35em')
-			.text( (d: any) => d.number );
+			.text( (d: any) => d.data.name ).style('fill', '#f2f2f2');
 	}
 
 }
