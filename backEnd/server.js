@@ -27,27 +27,27 @@ var users = [
 var dataAll = [
 	{
 		name: 'January',
-		number: 120 
+		values: 120 
 	},
 	{
 		name: 'February',
-		number: 140
+		values: 140
 	},
 	{
 		name: 'March',
-		number: 25
+		values: 25
 	},
 	{
 		name: 'April',
-		number: 313
+		values: 313
 	},
 	{
 		name: 'May',
-		number: 214
+		values: 214
 	},
 	{
 		name: 'June',
-		number: 123
+		values: 123
 	}
 ]
 
