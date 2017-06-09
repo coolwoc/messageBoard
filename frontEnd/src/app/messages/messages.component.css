@@ -1,0 +1,20 @@
+.mat-card-title:not(:first-child) {
+	clear: both;
+	cursor: pointer;
+}
+.card-icons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	float: right;
+}
+.card-icons li {
+	float: left;
+	margin: 0;
+}
+.card-icons li a {
+	padding: 5px;
+}
+.card-icons li a:hover i {
+	color: #666;
+}

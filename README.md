@@ -35,7 +35,6 @@ Inside backEnd folder
 > Input-field with autosearch <br/>
 > Delete messages <br/>
 > Edit messages <br/>
-> Remove CSS from components<br/>
 
 > BE:<br/>
 > MongoDB database <br/>

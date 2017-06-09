@@ -159,6 +159,7 @@ export class DashboardComponent implements OnInit {
 				.attr('transform', (d: any) => 'translate(' + this.labelArc.centroid(d) + ')')
 				.attr('dy', '0.35em')
 				.text( (d: any) => d.data.name ).style('fill', '#f2f2f2');
+
 	}
 
 }

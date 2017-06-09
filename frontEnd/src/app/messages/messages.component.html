@@ -1,7 +1,19 @@
 <h2 *ngIf="auth.isAuthenticated">Message Board</h2>
 <div *ngFor="let message of webService.messages | async ">
 	<md-card class='card' *ngIf="auth.isAuthenticated">
-		<md-card-title [routerLink]="['/messages', message.owner]" style='cursor: pointer'>{{message.owner}}</md-card-title>
+		<ul class='card-icons'>
+			<li>
+				<a href="javascript:void(0)">
+					<i class="material-icons">mode_edit</i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)">
+					<i class="material-icons">delete_sweep</i>
+				</a>
+			</li>
+		</ul>
+		<md-card-title [routerLink]="['/messages', message.owner]">{{message.owner}}</md-card-title>
 		<md-card-content>{{message.text}}</md-card-content>
 	</md-card>
 </div>

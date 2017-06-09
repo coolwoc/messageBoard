@@ -6,7 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
     moduleId: module.id,
     selector: 'messages',
-    templateUrl: 'messages.component.html'
+    templateUrl: 'messages.component.html',
+    styleUrls:['messages.component.css']
 })
 export class MessagesComponent {
 
