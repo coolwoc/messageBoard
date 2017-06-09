@@ -6,11 +6,7 @@ import { AuthService } from '../_providers/auth.service';
     moduleId: module.id,
     selector: 'new-message',
     templateUrl: 'new-message.component.html',
-    styles: [`
-        .mat-input-container {
-            width: 100%;
-        }
-    `]
+    styleUrls: ['new-message.component.css']
 })
 export class NewMessageComponent {
 

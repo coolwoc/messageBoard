@@ -5,14 +5,7 @@ import { WebService } from '../_providers/web.service';
     moduleId: module.id,
     selector: 'user',
     templateUrl: 'user.component.html',
-    styles: [`
-        .menu-divider {
-            flex: 1 1 auto;
-        }
-        .mat-input-container {
-            width: 100%;
-        }
-    `]
+    styles: ['user.component.css']
 })
 export class UserComponent {
 

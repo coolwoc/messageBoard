@@ -13,88 +13,8 @@ import { ActivatedRoute } from '@angular/router';
 	moduleId: module.id,
 	selector: 'dashboard',
 	templateUrl: 'dashboard.component.html',
-	encapsulation: ViewEncapsulation.None,
-	styles: [`
-
-		.dash-wrapper {
-			width: 90%;
-			margin: 0 auto
-		}
-		.d3-chart {
-		 	width: 100%;
-		 	height: 400px;
-		 	margin-bottom: 40px;
-		}
-		.d3-chart .axis path,
-		.d3-chart .axis line {
-			stroke: #999;
-		}
-		.d3-chart .axis text {
-			fill: #999;
-		}
-		.d3-pie {
-			float: left;
-		 	width: 600px;
-		 	height: 390px;
-		}
-		.d3-pie svg {
-			width: 100%;
-			height: 100%;
-		}
-		.arc {
-			color: #f2f2f2;
-		}
-		.arc text {
-			font-size: 16px;
-			text-anchor: middle;
-		}
-		.arc path {
-			stroke: #fff;
-		}
-
-		.table-pie {
-			float: left;
-			overflow: hidden;
-			width: 600px;
-			padding-top: 40px;
-		}
-		.table-pie {
-			width: 50%;
-		}
-		.table-pie table {
-			width: 100%;
-			border-collapse: collapse;
-		}
-		.table-pie table thead tr th {
-			width: 50%;
-			color: #666;
-			padding: 10px 0;
-			font-weight: regular;
-			text-align: center;
-			overflow: hidden;
-			font-weight: normal;
-		}
-		.table-pie table thead th {
-			border-bottom: 1px solid #ccc;
-		}
-		.table-pie table tbody tr:nth-child(even) {
-			background-color: #f2f2f2;
-		}
-		.table-pie table tbody tr:last-child {
-			border-bottom: 1px solid #ccc;
-		}
-		.table-pie table tbody tr td {
-			overflow: hidden;
-			color: #999;
-			padding: 10px 0;
-		}
-		.table-pie table tbody tr td:first-child {
-			padding-left: 40px;
-		}
-		.table-pie table tbody tr td:last-child {
-			text-align: center;
-		}
-	`]
+	styleUrls: ['dashboard.component.css'],
+	encapsulation: ViewEncapsulation.None
 })
 
 export class DashboardComponent implements OnInit {
@@ -162,12 +82,12 @@ export class DashboardComponent implements OnInit {
 			.attr('transform', `translate(${this.margin.left}, ${this.margin.top})`);
 
 		// define X & Y domains
-		let xDomain = this.dataAll.map(d => d.name);
-		let yDomain = [0, D3.max(this.dataAll, d => d.number)];
+		let xDomain = this.dataAll.map( d => d.name);
+		let yDomain = [0, D3.max(this.dataAll, (d) => d.values)];
 
 		// create scales
-		this.xScale = D3.scaleBand().padding(0.1).domain(xDomain).rangeRound([0, this.width]);
-		this.yScale = D3.scaleLinear().domain(yDomain).range([this.height, 0]);
+		this.xScale = D3.scaleBand().padding(0.1).domain(<any>xDomain).rangeRound([0, this.width]);
+		this.yScale = D3.scaleLinear().domain(<any>yDomain).range([this.height, 0]);
 
 		// bar colors
 		this.colors = D3.scaleLinear().domain([0, this.dataAll.length]).range(<any[]>['red', 'blue']);
@@ -190,12 +110,12 @@ export class DashboardComponent implements OnInit {
 			.append('rect')
 			.attr('class', '.bar')
 			.attr('x', d => this.xScale(d.name))
-			.attr('y', d => this.yScale(d.number))
+			.attr('y', d => this.yScale(d.values))
 			.attr('width', this.xScale.bandwidth())
 			.style('fill', (d, i) => this.colors(i))
 			.transition()
 			.delay((d, i) => i * 10)
-			.attr('height', d => this.height - this.yScale(d.number));
+			.attr('height', d => this.height - this.yScale(d.values));
 
 	}
 
@@ -219,7 +139,7 @@ export class DashboardComponent implements OnInit {
         	.innerRadius(this.pRadius - 40);
 
         this.pie = D3.pie()
-        	.value((d: any) => d.number);
+        	.value((d: any) => d.values);
 
         this.svg = D3.select(pElement).append('svg')
         	.append('g')
@@ -233,7 +153,7 @@ export class DashboardComponent implements OnInit {
 			.attr('class', 'arc');
 
 			g.append('path').attr('d', this.arc)
-				.style('fill', (d: any) => this.color(d.value));
+				.style('fill', (d: any) => this.color(d.values));
 
 			g.append('text')
 				.attr('transform', (d: any) => 'translate(' + this.labelArc.centroid(d) + ')')

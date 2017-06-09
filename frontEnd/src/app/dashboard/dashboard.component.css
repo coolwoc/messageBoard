@@ -1,0 +1,78 @@
+.dash-wrapper {
+	width: 90%;
+	margin: 0 auto
+}
+.d3-chart {
+ 	width: 100%;
+ 	height: 400px;
+ 	margin-bottom: 40px;
+}
+.d3-chart .axis path,
+.d3-chart .axis line {
+	stroke: #999;
+}
+.d3-chart .axis text {
+	fill: #999;
+}
+.d3-pie {
+	float: left;
+ 	width: 600px;
+ 	height: 390px;
+}
+.d3-pie svg {
+	width: 100%;
+	height: 100%;
+}
+.arc {
+	color: #f2f2f2;
+}
+.arc text {
+	font-size: 16px;
+	text-anchor: middle;
+}
+.arc path {
+	stroke: #fff;
+}
+
+.table-pie {
+	float: left;
+	overflow: hidden;
+	width: 600px;
+	padding-top: 40px;
+}
+.table-pie {
+	width: 50%;
+}
+.table-pie table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.table-pie table thead tr th {
+	width: 50%;
+	color: #666;
+	padding: 10px 0;
+	font-weight: regular;
+	text-align: center;
+	overflow: hidden;
+	font-weight: normal;
+}
+.table-pie table thead th {
+	border-bottom: 1px solid #ccc;
+}
+.table-pie table tbody tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+.table-pie table tbody tr:last-child {
+	border-bottom: 1px solid #ccc;
+}
+.table-pie table tbody tr td {
+	overflow: hidden;
+	color: #999;
+	padding: 10px 0;
+}
+.table-pie table tbody tr td:first-child {
+	padding-left: 40px;
+}
+.table-pie table tbody tr td:last-child {
+	text-align: center;
+}

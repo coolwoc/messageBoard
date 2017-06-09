@@ -6,22 +6,7 @@ import { AuthService } from '../_providers/auth.service';
 	moduleId: module.id,
   	selector: 'register',
   	templateUrl: 'register.component.html',
-  	styles: [`
-  		.error {
-  			background-color: #fff0f0;
-  		}
-  		.error-msg {
-  			display: block;
-  			font-size: 12px;
-  			color: red;
-  		}
-  		.mat-input-container {
-  			width: 100%;
-  		}
-		.mat-input-container .input-width {
-  			width: 100%;
-  		}
-  	`]
+  	styleUrls: ['register.component.css']
 })
 export class RegisterComponent  {
 

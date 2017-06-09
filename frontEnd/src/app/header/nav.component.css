@@ -1,0 +1,9 @@
+.menu-divider {
+	flex: 1 1 auto;
+}
+.mat-button {
+	font-size: 16px;
+}
+.mat-button.isActive {
+	color: #ffff00;
+}

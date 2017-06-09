@@ -5,11 +5,7 @@ import { AuthService } from '../_providers/auth.service';
 	moduleId: module.id,
     selector: 'login',
     templateUrl: 'login.component.html',
-    styles: [`
-        .mat-input-container {
-            width: 100%;
-        }
-    `]
+    styleUrls: ['login.component.css']
 })
 
 export class LoginComponent {
