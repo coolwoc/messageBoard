@@ -17,4 +17,9 @@ export class MessagesComponent {
 		var name = this.route.snapshot.params.name;
 		this.webService.getMessages(name);
 	}
+
+	deleteMessage(id) {
+		this.webService.deleteMessage(id);
+	}
+
 }

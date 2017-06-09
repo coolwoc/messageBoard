@@ -34,26 +34,28 @@ export class WebService {
 		user = (user) ? '/' + user : '';
 
 		this.http.get(this.BASE_URL + '/messages' + user ).subscribe(response => {
+
 			this.messageStore = response.json();
 			this.messageSubject.next(this.messageStore);	
+
 		}, error => {
 			this.handleError('Unable to get any messages');	
 		});
 		
 	}
 
-	getDataAll() {
-		
-		/*
-		this.http.get(this.BASE_URL + '/dataAll').subscribe(response => {
-			this.data = response.json();
+	deleteMessage(id) {
+
+		return this.http.delete(this.BASE_URL + '/messages/' + id).subscribe(response => {			
+			var targetId = response.json();
+			this.messageStore.splice(targetId, 1);
 		}, error => {
-			this.handleError('Unable to get any data');
+			this.handleError('Unable to delete any message');
 		})
-		*/
+	}
 
+	getDataAll() {
 		return this.http.get(this.BASE_URL + '/dataAll').map(res => res.json());
-
 	}
 
 	async postMessage(message) {

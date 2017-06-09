@@ -49,13 +49,14 @@ var dataAll = [
 		name: 'June',
 		values: 123
 	}
-]
+];
 
 app.use(bodyParser.json());
 
 // cors
 app.use((req, res, next) => {
 	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 	next();
 })
@@ -70,6 +71,11 @@ api.get('/messages', (req, res) => {
 api.get('/messages/:user', (req, res) => {
 	var user = req.params.user;
 	var result = messages.filter(message => message.owner == user);
+	res.json(result);
+})
+api.delete('/messages/:id', (req, res) => {
+	var id = req.params.id;
+	var result = messages.filter(message => message.id );
 	res.json(result);
 })
 
