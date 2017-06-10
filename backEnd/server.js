@@ -84,8 +84,15 @@ api.get('/dataAll', (req, res) => {
 })
 
 api.post('/messages', (req, res) => {
-    messages.push(req.body);
-    res.json(req.body);
+
+	var msg = req.body;
+		msg.id = (messages.length) + 1;
+		msg.text = req.body.text;
+		msg.owner = req.body.owner;
+
+	messages.push(msg);
+	res.json(msg);
+
 })
 
 api.get('/users/me', checkAuthenticated, (req,res) => {
