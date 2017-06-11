@@ -47,10 +47,16 @@ export class WebService {
 	deleteMessage(id) {
 
 		return this.http.delete(this.BASE_URL + '/messages/' + id).subscribe(response => {			
-			var targetId = response.json();
-			this.messageStore.splice(targetId, 1);
+			
+			let targetId = response.json();
+			const index = this.messageStore.findIndex( message => message.id !== targetId.id );
+			this.messageStore.splice(index, 1);
+			this.messageSubject.next(this.messageStore);
+
 		}, error => {
+
 			this.handleError('Unable to delete any message');
+
 		})
 	}
 

@@ -13,6 +13,7 @@
 				</a>
 			</li>
 		</ul>
+		{{message | json}}
 		<md-card-title [routerLink]="['/messages', message.owner]">{{message.owner}}</md-card-title>
 		<md-card-content>{{message.text}}</md-card-content>
 	</md-card>

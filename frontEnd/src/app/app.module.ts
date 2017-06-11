@@ -8,7 +8,6 @@ import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent }  from './app.component';
-import { routing } from './app.routing';
 
 import { NavComponent } from './header/nav.component';
 import { NewMessageComponent } from './newMessages/new-message.component';
@@ -18,6 +17,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { routing } from './app.routing';
 
 import { WebService } from './_providers/web.service';
 import { AuthService } from './_providers/auth.service';
