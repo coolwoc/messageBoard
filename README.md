@@ -30,8 +30,6 @@ Inside backEnd folder
 
 ### Todo
 > FE:<br/>
-> Dashboard: Add donut pie with transitions <br/>
-> Dashboard: Add transitions to pie <br/>
 > Input-field with autosearch <br/>
 > Delete messages <br/>
 > Edit messages <br/>
