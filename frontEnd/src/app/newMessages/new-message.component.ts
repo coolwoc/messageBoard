@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { routing } from '../app.routing';
 import { WebService } from '../_providers/web.service';
 import { AuthService } from '../_providers/auth.service';
 
