@@ -31,7 +31,6 @@ Inside backEnd folder
 ### Todo
 > FE:<br/>
 > Input-field with autosearch <br/>
-> Delete messages <br/>
 > Edit messages <br/>
 
 > BE:<br/>
