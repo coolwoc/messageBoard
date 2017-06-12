@@ -48,10 +48,11 @@ export class WebService {
 
 		return this.http.delete(this.BASE_URL + '/messages/' + id).subscribe(response => {			
 			
-			let targetId = response.json();
-			const index = this.messageStore.findIndex( message => message.id !== targetId.id );
-			this.messageStore.splice(index, 1);
+			this.messageStore = this.messageStore.filter( messages => messages.id !== id );
 			this.messageSubject.next(this.messageStore);
+
+			console.log( this.BASE_URL + '/messages/' + id );
+			console.log(this.messageStore);
 
 		}, error => {
 

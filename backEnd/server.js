@@ -73,10 +73,14 @@ api.get('/messages/:user', (req, res) => {
 	var result = messages.filter(message => message.owner == user);
 	res.json(result);
 })
+
 api.delete('/messages/:id', (req, res) => {
+
 	var id = req.params.id;
-	var result = messages.filter(message => message.id );
-	res.json(result);
+	messages = messages.filter(message => message.id != id );
+
+	res.json(messages);
+
 })
 
 api.get('/dataAll', (req, res) => {
