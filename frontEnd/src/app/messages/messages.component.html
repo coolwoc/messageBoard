@@ -1,20 +1,42 @@
 <h2 *ngIf="auth.isAuthenticated">Message Board</h2>
+
 <div *ngFor="let message of webService.messages | async ">
-	<md-card class='card' *ngIf="auth.isAuthenticated">
-		<ul class='card-icons'>
-			<li>
-				<a href="javascript:void(0)">
-					<i class="material-icons">mode_edit</i>
-				</a>
-			</li>
-			<li>
-				<a href="javascript:void(0)" (click) = 'deleteMessage(message.id)'>
-					<i class="material-icons">delete_sweep</i>
-				</a>
-			</li>
-		</ul>
-		{{message | json}}
-		<md-card-title [routerLink]="['/messages', message.owner]">{{message.owner}}</md-card-title>
-		<md-card-content>{{message.text}}</md-card-content>
-	</md-card>
+
+	<form (ngSubmit)='update(message)'>
+
+		<md-card class='card' *ngIf='auth.isAuthenticated'>
+			
+			<ul class='card-icons' *ngIf='!editField'>
+				<li>
+					<a href="javascript:void(0)" (click)='editable(message)'>
+						<i class="material-icons">mode_edit</i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" (click) = 'deleteMessage(message.id)'>
+						<i class="material-icons">delete_sweep</i>
+					</a>
+				</li>
+			</ul>
+			
+			<md-card-title [routerLink]="['/messages', message.owner]">
+				{{message.owner}}
+			</md-card-title>
+			
+			<md-card-content *ngIf='!editField'>
+				{{message.text}}
+			</md-card-content>
+			
+			<md-input-container *ngIf='editField'>
+				<textarea [(ngModel)]='message.text' name='text' mdInput placeholder='Message'>{{message.text}}</textarea>
+			</md-input-container>
+
+			<md-card-actions *ngIf='editField'>
+	        	<button md-raised-button color='primary'>Update</button>
+	        </md-card-actions>
+
+		</md-card>
+
+	</form>
+
 </div>
