@@ -16,7 +16,7 @@
 }
 .d3-pie {
 	float: left;
- 	width: 600px;
+ 	width: 50%;
  	height: 390px;
 }
 .d3-pie svg {
@@ -37,11 +37,8 @@
 .table-pie {
 	float: left;
 	overflow: hidden;
-	width: 600px;
-	padding-top: 40px;
-}
-.table-pie {
 	width: 50%;
+	padding-top: 40px;
 }
 .table-pie table {
 	width: 100%;
