@@ -7,6 +7,7 @@ Features:<br/>
 Dashboard<br/>
 You can login.<br/>
 Post Messages.<br/>
+Edit posted messages.<br/>
 Get Messages by users ( clicking on the posts ).<br/>
 Edit main user data.<br/>
 Log-out of the application.<br/>
@@ -31,7 +32,6 @@ Inside backEnd folder
 ### Todo
 > FE:<br/>
 > Input-field with autosearch <br/>
-> Edit messages <br/>
 
 > BE:<br/>
 > MongoDB database <br/>
