@@ -51,12 +51,21 @@ export class WebService {
 			this.messageStore = this.messageStore.filter( messages => messages.id !== id );
 			this.messageSubject.next(this.messageStore);
 
-			console.log( this.BASE_URL + '/messages/' + id );
-			console.log(this.messageStore);
-
 		}, error => {
 
 			this.handleError('Unable to delete any message');
+
+		})
+	}
+
+	updateMessage(updateData) {
+
+		return this.http.put(this.BASE_URL + '/messages/' + updateData.id, updateData  ).subscribe(response => {
+
+
+		}, error => {
+
+			this.handleError('Unable to update any message data');
 
 		})
 	}
