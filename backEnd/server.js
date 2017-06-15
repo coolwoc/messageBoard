@@ -74,6 +74,19 @@ api.get('/messages/:user', (req, res) => {
 	res.json(result);
 })
 
+api.put('/messages/:id', (req, res) => {
+
+	var id = req.params.id;
+	messages = messages.filter(message => message.id == id);
+
+	// update array object values
+	messages[0]['owner'] = req.body.owner;
+	messages[0]['text'] = req.body.text;
+
+	res.json(messages)
+	
+})
+
 api.delete('/messages/:id', (req, res) => {
 
 	var id = req.params.id;
