@@ -83,7 +83,7 @@ export class DashboardComponent implements OnInit {
 
 		// define X & Y domains
 		let xDomain = this.dataAll.map( d => d.name);
-		let yDomain = [0, D3.max(this.dataAll, (d) => d.values)];
+		let yDomain = [0, D3.max(this.dataAll, (d:any) => d.values)];
 
 		// create scales
 		this.xScale = D3.scaleBand().padding(0.1).domain(<any>xDomain).rangeRound([0, this.width]);
