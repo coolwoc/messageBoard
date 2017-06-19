@@ -2,13 +2,15 @@
 
 <div *ngFor="let message of webService.messages | async ">
 
+	{{message | json}}
+
 	<form (ngSubmit)='update(message)'>
 
 		<md-card class='card' *ngIf='auth.isAuthenticated'>
 			
 			<ul class='card-icons' *ngIf='!editField'>
 				<li>
-					<a href="javascript:void(0)" (click)='editable(message)'>
+					<a href="javascript:void(0)" (click)='editable()'>
 						<i class="material-icons">mode_edit</i>
 					</a>
 				</li>

@@ -28,14 +28,7 @@ export class MessagesComponent {
 		private fb: FormBuilder
 	){}
 
-	private editField:boolean;
-
-	id: any;
-	text: string;
-	editForm: FormGroup;
-
-
-	private sub: any; // points message
+	private editField: boolean;
 
 	ngOnInit() {
 		var name = this.route.snapshot.params.name;
@@ -47,17 +40,13 @@ export class MessagesComponent {
 		this.webService.deleteMessage(id);
 	}
 
-	editable(id) {
-
+	editable() {
 		this.editField = true;
-
 	}
 
 	update(message) {
-
 		this.webService.updateMessage(message);
         this.editField = false;
-
 	}
 
 }

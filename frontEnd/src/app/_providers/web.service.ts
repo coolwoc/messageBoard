@@ -25,6 +25,7 @@ export class WebService {
 
 	messages = this.messageSubject.asObservable();
 
+
 	constructor( private http:Http, private sb: MdSnackBar, private auth: AuthService ) {
 		this.getMessages('');
 	}
@@ -33,9 +34,10 @@ export class WebService {
 
 		user = (user) ? '/' + user : '';
 
-		this.http.get(this.BASE_URL + '/messages' + user ).subscribe(response => {
+		this.http.get(this.BASE_URL + '/messages' + user ).map(res => res.json()).subscribe(response => {
 
-			this.messageStore = response.json();
+			//this.messageStore = response.json();
+			this.messageStore = response;
 			this.messageSubject.next(this.messageStore);	
 
 		}, error => {
@@ -60,14 +62,24 @@ export class WebService {
 
 	updateMessage(updateData) {
 
-		return this.http.put(this.BASE_URL + '/messages/' + updateData.id, updateData  ).subscribe(response => {
+		return this.http.put(this.BASE_URL + '/messages/' + updateData.id, updateData)
+			.map(response => response.json()).subscribe(data => {
 
+				this.messageStore.forEach((value, index) => {
+
+					if (value.id == data[0].id) {
+						this.messageStore[index] = value;
+						this.messageSubject.next(this.messageStore);
+					}
+
+				});
 
 		}, error => {
 
 			this.handleError('Unable to update any message data');
 
-		})
+		})	
+		
 	}
 
 	getDataAll() {
