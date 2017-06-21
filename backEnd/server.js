@@ -80,6 +80,7 @@ api.put('/messages/:id', (req, res) => {
 	messages = messages.filter(message => message.id == id);
 
 	// update array object values
+	//messages[0]['id'] = req.body.id;
 	messages[0]['owner'] = req.body.owner;
 	messages[0]['text'] = req.body.text;
 
