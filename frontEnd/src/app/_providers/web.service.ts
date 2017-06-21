@@ -15,16 +15,11 @@ export class WebService {
 
 	BASE_URL = 'http://localhost:63145/api';
 
-	// we make observable and private the data
-	// so we can make sure we do not access from 
-	// other components
-	private messageStore = [];
-	private messageSubject = new Subject();
+	private messageStore = []; // store data in memory
+	private messageSubject = new Subject(); // receive and emits news messages
+	messages = this.messageSubject.asObservable(); // parses data in component
 
 	private data = [];
-
-	messages = this.messageSubject.asObservable();
-
 
 	constructor( private http:Http, private sb: MdSnackBar, private auth: AuthService ) {
 		this.getMessages('');
@@ -34,16 +29,15 @@ export class WebService {
 
 		user = (user) ? '/' + user : '';
 
-		this.http.get(this.BASE_URL + '/messages' + user ).map(res => res.json()).subscribe(response => {
+		this.http.get(this.BASE_URL + '/messages' + user ).subscribe(response => {
 
-			//this.messageStore = response.json();
-			this.messageStore = response;
+			this.messageStore = response.json();
 			this.messageSubject.next(this.messageStore);	
 
 		}, error => {
 			this.handleError('Unable to get any messages');	
 		});
-		
+
 	}
 
 	deleteMessage(id) {
@@ -65,21 +59,15 @@ export class WebService {
 		return this.http.put(this.BASE_URL + '/messages/' + updateData.id, updateData)
 			.map(response => response.json()).subscribe(data => {
 
-				this.messageStore.forEach((value, index) => {
+				this.messageStore = data;
+				this.messageSubject.next(this.messageStore);
 
-					if (value.id == data[0].id) {
-						this.messageStore[index] = value;
-						this.messageSubject.next(this.messageStore);
-					}
-
-				});
 
 		}, error => {
 
 			this.handleError('Unable to update any message data');
 
-		})	
-		
+		})		
 	}
 
 	getDataAll() {

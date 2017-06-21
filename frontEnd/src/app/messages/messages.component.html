@@ -2,8 +2,6 @@
 
 <div *ngFor="let message of webService.messages | async ">
 
-	{{message | json}}
-
 	<form (ngSubmit)='update(message)'>
 
 		<md-card class='card' *ngIf='auth.isAuthenticated'>
