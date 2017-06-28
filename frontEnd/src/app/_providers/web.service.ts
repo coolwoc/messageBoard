@@ -35,7 +35,6 @@ export class WebService {
 		}, error => {
 			this.handleError('Unable to get any messages');	
 		});
-
 	}
 
 	deleteMessage(id) {
@@ -57,18 +56,8 @@ export class WebService {
 		return this.http.put(this.BASE_URL + '/messages/' + updateData.id, updateData)
 			.map(response => response.json()).subscribe(data => {
 
-				
-				this.messageStore.forEach((item, index) => {
-
-					if (item.id == data[0].id) {
-						this.messageStore[index].id = data[0].id;
- 						this.messageStore[index].owner = data[0].owner;
-						this.messageStore[index].text = data[0].text;	
-					}
-
-					this.messageSubject.next(this.messageStore);
-
-				});
+				// updates messages
+				this.messageSubject.next(this.messageStore);
 
 
 		}, error => {
