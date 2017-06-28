@@ -5,22 +5,22 @@ The Frond End of the application uses ANGULAR MATERIAL, ANGULARJS & TYPESCRIPT.
 
 Features:<br/>
 Dashboard<br/>
-You can login.<br/>
-Post Messages.<br/>
-Edit posted messages.<br/>
-Get Messages by users ( clicking on the posts ).<br/>
-Edit main user data.<br/>
-Log-out of the application.<br/>
+	You can login.<br/>
+	Post Messages.<br/>
+	Edit posted messages.<br/>
+	Get Messages by users ( clicking on the posts ).<br/>
+	Edit main user data.<br/>
+	Log-out of the application.<br/>
 
 The application does not have DB.
 
 ## Run Front-End
-Inside frontEnd folder
+from frontEnd/
 
 > npm start
 
 ## Run Backend
-Inside backEnd folder
+from backEnd/
 
 > npm start
 
