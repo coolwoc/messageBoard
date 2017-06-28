@@ -77,14 +77,19 @@ api.get('/messages/:user', (req, res) => {
 api.put('/messages/:id', (req, res) => {
 
 	var id = req.params.id;
-	messages = messages.filter(message => message.id == id);
+	message = messages.filter(message => message.id == id);
 
 	// update array object values
-	//messages[0]['id'] = req.body.id;
-	messages[0]['owner'] = req.body.owner;
-	messages[0]['text'] = req.body.text;
+	message[0]['id'] = req.body.id;
+	message[0]['owner'] = req.body.owner;
+	message[0]['text'] = req.body.text;
 
-	res.json(messages)
+	messages.push(message);
+
+	// removes last element
+	messages.splice(-1);
+
+	res.json(messages);
 	
 })
 
