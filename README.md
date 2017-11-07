@@ -1,5 +1,5 @@
 #  Message Board
-An applications using NODE and EXPRESS with a login-system using JSON-WEB-TOKEN with a FAKE-TOKEN-PAYLOAD. <b>There is no database</b> but the server of the application simulates the API_ENDPOINT to request data from the FE.
+An applications using NODE and EXPRESS with a login-system using JSON-WEB-TOKEN with a FAKE-TOKEN-PAYLOAD. <b>There is no database</b> but the server of the application simulates the API_ENDPOINT to request data from the BE.
 
 The Frond End of the application uses ANGULAR MATERIAL, ANGULARJS & TYPESCRIPT.  
 
